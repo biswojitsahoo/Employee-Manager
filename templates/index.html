@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+  <div class="col-12">
+    <div class="glass-card p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h3 class="mb-0">Employees</h3>
+ 
+        <form class="d-flex" method="get" action="{{ url_for('index') }}">
+          <input class="form-control form-control-sm me-2 search-input" name="q" placeholder="Search by name..." value="{{ q }}">
+          <button class="btn btn-sm btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+        </form>
+      </div>
+ 
+      <div class="table-responsive neon-table-wrap">
+        <table class="table table-borderless align-middle neon-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Salary</th>
+              <th class="text-end">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if employees %}
+              {% for emp in employees %}
+                <tr class="table-row">
+                  <td>{{ emp[0] }}</td>
+                  <td>{{ emp[1] }}</td>
+                  <td>{{ '{:,.2f}'.format(emp[2] if emp[2] else 0) }}</td>
+                  <td class="text-end">
+                    <a class="btn btn-sm btn-outline-light me-1" href="{{ url_for('edit_employee', emp_id=emp[0]) }}" title="Edit">
+                      <i class="bi bi-pencil-square"></i>
+                    </a>
+ 
+                    <!-- Delete button opens modal -->
+                    <button
+                      class="btn btn-sm btn-neon-outline"
+                      data-bs-toggle="modal"
+                      data-bs-target="#deleteModal"
+                      data-id="{{ emp[0] }}"
+                      data-name="{{ emp[1] }}">
+                      <i class="bi bi-trash-fill"></i>
+                    </button>
+                  </td>
+                </tr>
+              {% endfor %}
+            {% else %}
+              <tr><td colspan="4" class="text-center text-muted">No employees found.</td></tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content glass-modal">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm delete</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete <strong class="emp-name"></strong>?
+      </div>
+      <div class="modal-footer">
+        <form method="post" action="">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

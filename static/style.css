@@ -1,0 +1,143 @@
+/* Glass + Neon (D2) styling */
+ 
+:root{
+  --glass-bg: rgba(255,255,255,0.06);
+  --glass-border: rgba(255,255,255,0.08);
+  --neon-cyan: rgba(24, 255, 255, 0.9);
+  --neon-blue: rgba(80,170,255,0.95);
+  --accent: rgba(80,170,255,0.85);
+}
+ 
+body {
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(0,20,40,0.9), rgba(5,8,15,1));
+  color: #e8f6ff;
+  min-height: 100vh;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+ 
+/* Navbar */
+.glass-nav{
+  background: linear-gradient(135deg, rgba(76, 6, 255, 0.308), rgba(76, 6, 255, 0.308));
+  backdrop-filter: blur(8px) saturate(120%);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  padding: .6rem 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+ 
+.logo-neon{
+  width:40px;height:40px;border-radius:10px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;color:var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(24, 255, 255, 0.735), 0 0 28px rgba(80,170,255,0.03);
+  border: 1px solid rgba(5, 222, 66, 0.975);
+}
+ 
+.brand-txt{font-weight:600;color:#dff6ff}
+ 
+/* Glass card */
+.glass-card{
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 14px;
+  backdrop-filter: blur(10px) saturate(130%);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+ 
+/* Table wrapper */
+.neon-table-wrap{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  padding: 8px;
+  border-radius: 10px;
+}
+ 
+.neon-table thead th{
+  color: rgba(17, 187, 249, 0.9);
+  font-weight:600;
+  font-size: .95rem;
+  border-bottom: 3px solid rgba(83, 234, 32, 0.904);
+}
+ 
+.table-row {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+ 
+.table-row:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 20px rgba(80,170,255,0.04);
+}
+ 
+/* Buttons */
+.btn-neon{
+  background: linear-gradient(90deg, rgba(24, 255, 255, 0.388), rgba(24, 255, 255, 0.388));
+  border: 1px solid rgba(80,170,255,0.35);
+  color: #eaffff;
+  box-shadow: 0 6px 18px rgba(24,255,255,0.03), 0 0 28px rgba(80,170,255,0.03);
+  border-radius: 10px;
+}
+.btn-neon:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(24,255,255,0.06), 0 0 40px rgba(80,170,255,0.08);
+}
+ 
+.btn-neon-outline{
+  /* background: transparent;
+  color: #7bb0d1;
+  border: 1px solid rgba(80, 170, 255, 0.292);
+  box-shadow: none;
+  border-radius: 8px; */
+  border-color: rgba(69, 181, 230, 0.596);
+  color: #7bb0d1;
+}
+
+.btn-neon-outline:hover{
+  border-color: rgba(24, 255, 255, 0.582);
+  box-shadow: 0 8px 32px rgba(24, 255, 255, 0.018);
+}
+ 
+/* small pale buttons */
+.btn-outline-light{
+  border-color: rgba(69, 181, 230, 0.596);
+  color: #7bb0d1;
+}
+ 
+/* Inputs */
+.search-input{
+  background: #10e2e2a1;
+  border: 1px solid rgba(243, 58, 126, 0.594);
+  color: #e8f6ff;
+  border-radius: 10px;
+  min-width: 220px;
+}
+ 
+/* Modal glass */
+.glass-modal{
+  background: linear-gradient(180deg, rgba(108, 247, 129, 0.42), rgba(255,255,255,0.01));
+  border: 5px solid rgba(7, 211, 234, 0.879);
+  backdrop-filter: blur(8px) saturate(120%);
+  color: #e8f6ff;
+  box-shadow: 0 6px 18px rgba(24, 120, 255, 0.621), 0 0 28px  rgba(24, 120, 255, 0.621);
+}
+ 
+/* footer */
+.glass-footer{
+  margin-top: 40px;
+  color: rgb(134, 224, 251);
+}
+ 
+/* Alerts neon tint */
+.neon-alert {
+  background: linear-gradient(90deg, rgba(24, 255, 255, 0.21), rgba(80, 170, 255, 0.228));
+  border: 1px solid rgba(80,170,255,0.10);
+  color: #e8f6ff;
+}
+ 
+/* Responsive tweaks */
+@media (max-width: 576px){
+  .logo-neon{width:34px;height:34px}
+  .brand-txt{display:none}
+  .search-input{min-width:120px}
+}
