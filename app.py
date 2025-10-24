@@ -6,11 +6,11 @@ app.secret_key = "replace_this_with_a_random_secret"  # change for production
 
 oracledb.init_oracle_client(lib_dir= r"C:\oracle\instantclient_23_9")
 # ---------- CONFIGURE YOUR ORACLE THIN CONNECTION HERE ----------
-DB_USER = "pspdctmdev"
-DB_PASS = "SummerDCTM_01_Dev"
-DB_HOST = "AWSEPNNVAL0002"      # e.g., 127.0.0.1 or db.example.com
+DB_USER = "Username"
+DB_PASS = "Password"
+DB_HOST = "Your host"      # e.g., 127.0.0.1 or db.example.com
 DB_PORT = 1521             # as int or string
-DB_SID  = "DNV55102"       # e.g., ORCL
+DB_SID  = "Your SID"       # e.g., ORCL
  
 
 dsn = oracledb.makedsn(DB_HOST, DB_PORT, sid= DB_SID)
@@ -106,4 +106,5 @@ def delete_employee(emp_id):
     return redirect(url_for('index'))
  
 if __name__ == '__main__':
+
     app.run(debug=True)
